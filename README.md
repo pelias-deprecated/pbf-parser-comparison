@@ -5,7 +5,7 @@ Measure relative performance of PBF parsers in javascript, C++ and golang.
 
 Our requirements are pretty unusual in that we frequently import the whole OSM planet file (~26GB compressed) in to elasticsearch. As this can take ~20 days, any speed improvement for us will have significant impact on our dev cycles.
 
-The tests involve decompressing a PBF file stored on SSD and serializing each node/way to a single line of JSON which is then sent to stdout.
+The tests involve decompressing a PBF extract of London stored on SSD and serializing each node/way to a single line of JSON which is then sent to stdout.
 
 ## libraries
 
