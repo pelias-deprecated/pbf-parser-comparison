@@ -68,3 +68,9 @@ $ sudo hdparm -Tt /dev/xvdb
  Timing cached reads:   20518 MB in  2.00 seconds = 10271.47 MB/sec
  Timing buffered disk reads: 2204 MB in  3.00 seconds = 734.64 MB/sec
 ```
+
+### metro extracts
+
+We provide PBF extracts free-of-charge at https://mapzen.com/metro-extracts/
+
+The file I used for this test was `London, UK`. If the area you're looking for is not available, please submit a PR with your bbox and we'll add it for you!
