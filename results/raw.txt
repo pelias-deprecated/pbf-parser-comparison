@@ -1,0 +1,75 @@
+ubuntu@ip-10-121-22-174:/var/www/pbf-parser-comparison$ ./run.sh 
+
+--- pbf stats ---
+
+file: /mnt/london_england.osm.pbf
+
+lon min: -1.1149997
+lon max: 0.8949991
+lat min: 50.9410000
+lat max: 51.9839997
+nodes: 9861732
+ways: 1390940
+relations: 29157
+node id min: 19
+node id max: 3257561964
+way id min: 73
+way id max: 319342625
+relation id min: 58
+relation id max: 4436318
+keyval pairs max: 255
+keyval pairs max object: relation 62149
+noderefs max: 1760
+noderefs max object: way 204596511
+relrefs max: 1143
+relrefs max object: relation 2793118
+
+--- osm-pbf-parser ---
+
+real  2m59.225s
+user  2m33.686s
+sys 0m26.278s
+total lines: 11252672
+total nodes: 9862909
+total ways: 1390945
+shasum: (cbc1fa40a0f78b0324983849c83d5085586c5cd9  tmpfile)
+
+--- osm-read ---
+
+real  4m3.407s
+user  3m39.189s
+sys 0m26.231s
+total lines: 11252672
+total nodes: 9862909
+total ways: 1390945
+shasum: (c6f594791b50ebc358fc4cc1b14ce7f8caed0b22  tmpfile)
+
+--- node-osmium ---
+
+real  3m20.186s
+user  2m57.686s
+sys 0m28.212s
+total lines: 11252672
+total nodes: 9862909
+total ways: 1390945
+shasum: (3508acd0bcf1428f7cd9d90d7d550b2861f02100  tmpfile)
+
+--- node-osmium-stream ---
+
+real  5m30.806s
+user  5m1.790s
+sys 0m36.065s
+total lines: 11252672
+total nodes: 9862909
+total ways: 1390945
+shasum: (3508acd0bcf1428f7cd9d90d7d550b2861f02100  tmpfile)
+
+--- go-osmpbf ---
+
+real  1m39.228s
+user  1m19.758s
+sys 0m19.822s
+total lines: 11252672
+total nodes: 9862909
+total ways: 1390945
+shasum: (ec01984a0286c3ebb2ccb930de527c55c716e3b5  tmpfile)

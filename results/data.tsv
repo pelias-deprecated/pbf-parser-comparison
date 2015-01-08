@@ -1,0 +1,6 @@
+parser	time
+osm-pbf-parser	179
+osm-read	243
+node-osmium	200
+node-osmium-stream	330
+go-osmpbf	99
