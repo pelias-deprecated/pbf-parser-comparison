@@ -1,6 +1,6 @@
 
 import sys
-import json
+import ujson
 from imposm.parser import OSMParser
 from collections import OrderedDict # requires python 2.7+?
 
@@ -14,34 +14,53 @@ class JsonOutput(object):
   # coords are nodes without tags
   def coords(self, coords):
     for osmid, lon, lat in coords:
-      output = OrderedDict([
-        ('type','node'),
-        ('id', osmid),
-        ('lat', lat),
-        ('lon', lon)
-      ])
-      sys.stdout.write( json.dumps(output, separators=(',',':')) + '\n' )
+      # output = OrderedDict([
+      #   ('type','node'),
+      #   ('id', osmid),
+      #   ('lat', lat),
+      #   ('lon', lon)
+      # ])
+      output = {
+        'type': 'node',
+        'id': osmid,
+        'lat': lat,
+        'lon': lon
+      }
+      sys.stdout.write( ujson.dumps(output) + '\n' )
 
   def nodes(self, nodes):
     for osmid, tags, centroid in nodes:
-      output = OrderedDict([
-        ('type','node'), 
-        ('id', osmid), 
-        ('lat', centroid[1]),
-        ('lon', centroid[0]),
-        ('tags', tags)
-      ])
-      sys.stdout.write( json.dumps(output, separators=(',',':')) + '\n' )
+      # output = OrderedDict([
+      #   ('type','node'),
+      #   ('id', osmid),
+      #   ('lat', centroid[1]),
+      #   ('lon', centroid[0]),
+      #   ('tags', tags)
+      # ])
+      output = {
+        'type': 'node',
+        'id': osmid,
+        'lat': centroid[1],
+        'lon': centroid[0],
+        'tags': tags
+      }
+      sys.stdout.write( ujson.dumps(output) + '\n' )
 
   def ways(self, ways):
     for osmid, tags, refs in ways:
-      output = OrderedDict([
-        ('type','way'), 
-        ('id', osmid), 
-        ('refs', refs), 
-        ('tags', tags)
-      ])
-      sys.stdout.write( json.dumps(output, separators=(',',':')) + '\n' )
+      # output = OrderedDict([
+      #   ('type','way'),
+      #   ('id', osmid),
+      #   ('refs', refs),
+      #   ('tags', tags)
+      # ])
+      output = {
+        'type': 'way',
+        'id': osmid,
+        'refs': refs,
+        'tags': tags
+      }
+      sys.stdout.write( ujson.dumps(output) + '\n' )
 
   def relations(self, relations):
     return; # do nothing (yet)

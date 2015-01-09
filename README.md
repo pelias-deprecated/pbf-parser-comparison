@@ -60,6 +60,7 @@ python
 ```bash
 sudo apt-get install build-essential python-dev python-pip protobuf-compiler libprotobuf-dev;
 [sudo] pip install imposm.parser;
+[sudo] pip install ujson;
 ```
 
 ### run test
