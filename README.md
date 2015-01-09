@@ -14,6 +14,7 @@ The tests involve decompressing a PBF extract of London stored on SSD and serial
 - `node-osmium` https://github.com/osmcode/node-osmium
 - `node-osmium-stream` https://github.com/geopipes/osmium-stream
 - `go-osmpbf` https://github.com/qedus/osmpbf
+- `py-imposm-parser` https://github.com/omniscale/imposm-parser
 
 ## results
 
@@ -40,21 +41,31 @@ Make sure you have the most current versions of the following installed:
 - nodejs
 - golang
 - mercurial (for the golang dep)
+- python
 
 for impartial PBF stats I use:
 - osmconvert (sudo apt-get install osmctools)
 
 ### dependencies
 
+node/golang
+
 ```bash
 go get github.com/qedus/osmpbf;
 npm install;
 ```
 
+python
+
+```bash
+sudo apt-get install build-essential python-dev python-pip protobuf-compiler libprotobuf-dev;
+[sudo] pip install imposm.parser;
+```
+
 ### run test
 
 ```bash
-bash run.sh
+bash run.sh;
 ```
 
 ### drive performance

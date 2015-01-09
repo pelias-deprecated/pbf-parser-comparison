@@ -15,25 +15,28 @@ stats(){
   echo "shasum: (`shasum tmpfile`)";
 }
 
-echo '--- osm-pbf-parser ---';
-time node osm-pbf-parser $PBF_FILE >tmpfile;
-stats; rm tmpfile; echo;
+# echo '--- osm-pbf-parser ---';
+# time node osm-pbf-parser $PBF_FILE >tmpfile;
+# stats; rm tmpfile; echo;
 
-echo '--- osm-read ---';
-time node osm-read $PBF_FILE >tmpfile;
-cp tmpfile tmp1;
-stats; rm tmpfile; echo;
+# echo '--- osm-read ---';
+# time node osm-read $PBF_FILE >tmpfile;
+# cp tmpfile tmp1;
+# stats; rm tmpfile; echo;
 
-echo '--- node-osmium ---';
-time node node-osmium $PBF_FILE >tmpfile;
-cp tmpfile tmp2;
-stats; rm tmpfile; echo;
+# echo '--- node-osmium ---';
+# time node node-osmium $PBF_FILE >tmpfile;
+# cp tmpfile tmp2;
+# stats; rm tmpfile; echo;
 
-echo '--- node-osmium-stream ---';
-time node node-osmium-stream $PBF_FILE >tmpfile;
-stats; rm tmpfile; echo;
+# echo '--- node-osmium-stream ---';
+# time node node-osmium-stream $PBF_FILE >tmpfile;
+# stats; rm tmpfile; echo;
 
 echo '--- go-osmpbf ---';
 time go run osmpbf.go $PBF_FILE >tmpfile;
 stats; rm tmpfile; echo;
 
+echo '--- py-imposm-parser ---';
+time python imposm-parser.py $PBF_FILE >tmpfile;
+stats; rm tmpfile; echo;
