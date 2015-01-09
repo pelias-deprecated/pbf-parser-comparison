@@ -11,13 +11,24 @@ signal(SIGPIPE,SIG_DFL)
 # simple class that handles the parsed OSM data.
 class JsonOutput(object):
 
+  # coords are nodes without tags
+  def coords(self, coords):
+    for osmid, lon, lat in coords:
+      output = OrderedDict([
+        ('type','node'),
+        ('id', osmid),
+        ('lat', lat),
+        ('lon', lon)
+      ])
+      sys.stdout.write( json.dumps(output, separators=(',',':')) + '\n' )
+
   def nodes(self, nodes):
-    for osmid, tags, coords in nodes:
+    for osmid, tags, centroid in nodes:
       output = OrderedDict([
         ('type','node'), 
         ('id', osmid), 
-        ('lat', coords[1]), 
-        ('lon', coords[0]),
+        ('lat', centroid[1]),
+        ('lon', centroid[0]),
         ('tags', tags)
       ])
       sys.stdout.write( json.dumps(output, separators=(',',':')) + '\n' )
@@ -39,6 +50,7 @@ class JsonOutput(object):
 jsonify = JsonOutput()
 p = OSMParser(
   # concurrency=4, # defaults to the number of CPU and cores of the host system
+  coords_callback=jsonify.coords,
   nodes_callback=jsonify.nodes,
   ways_callback=jsonify.ways,
   relations_callback=jsonify.relations
