@@ -10,8 +10,8 @@ osmconvert --out-statistics $PBF_FILE; echo;
 
 stats(){
   echo "total lines: `cat tmpfile | wc -l`";
-  echo "total nodes: `cat tmpfile | grep node | wc -l`";
-  echo "total ways: `cat tmpfile | grep refs | wc -l`";
+  echo "total nodes: `cat tmpfile | grep '\"node\"' | wc -l`";
+  echo "total ways: `cat tmpfile | grep '\"way\"' | wc -l`";
   echo "shasum: (`shasum tmpfile`)";
 }
 
