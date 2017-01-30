@@ -9,10 +9,10 @@
   "license": "ISC",
   "dependencies": {
     "osm-pbf-parser": "^2.1.2",
-    "osm-read": "^0.5.0",
-    "osmium": "^0.3.0",
+    "osm-read": "^0.6.0",
+    "osmium": "^0.5.4",
     "osmium-stream": "^1.0.1",
-    "split": "^0.3.2",
-    "through2": "^0.6.3"
+    "split": "^1.0.0",
+    "through2": "^2.0.3"
   }
 }
