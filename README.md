@@ -9,6 +9,8 @@ The tests involve decompressing a PBF extract of London stored on SSD and serial
 
 ## libraries
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/pelias/pbf-parser-comparison.svg)](https://greenkeeper.io/)
+
 - `osm-pbf-parser` https://github.com/substack/osm-pbf-parser
 - `osm-read` https://github.com/marook/osm-read
 - `node-osmium` https://github.com/osmcode/node-osmium
